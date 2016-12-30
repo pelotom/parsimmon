@@ -181,9 +181,10 @@ This is the same as `Parsimmon.sepBy`, but matches the `content` parser **at lea
 Accepts a function that returns a parser, which is evaluated the first time the parser is used. This is useful for referencing parsers that haven't yet been defined, and for implementing recursive parsers. Example:
 
 ```javascript
-var Value = Parsimmon.lazy(function() {
+var Value = Parsimmon.
+function() {
   return Parsimmon.alt(
-    Parsimmon.string('x'),
+    Parsimmon.string('X'),
     Parsimmon.string('(')
       .then(Value)
       .skip(Parsimmon.string(')'))
